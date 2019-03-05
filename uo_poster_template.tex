@@ -1,0 +1,85 @@
+\documentclass[20pt,margin=0.25in,blockverticalspace=-0.1in,parskip=2em]{tikzposter}
+
+\geometry{paperwidth=42in,paperheight=30in}
+% Update tikzposter calculations for all margins
+\makeatletter
+\setlength{\TP@visibletextwidth}{\textwidth-2\TP@innermargin}
+\setlength{\TP@visibletextheight}{\textheight-2\TP@innermargin}
+\makeatother
+
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage{uo-theme}
+
+\usepackage{mwe} % for placeholder images
+
+\addbibresource{refs.bib}
+
+% set theme parameters
+\tikzposterlatexaffectionproofoff%
+\usetheme{UOTheme}
+\usecolorstyle{UOStyle}
+
+\title{University of Oregon Scientific Computing Poster Template}
+\author{Zayd~Hammoudeh\textsuperscript{$\dagger$} and Someone~Else\textsuperscript{$\ddagger$}}
+\institute{\textsuperscript{$\dagger$}Department of Computer Science, University of Oregon\\\vspace{6pt}
+           \textsuperscript{$\ddagger$}Department of Something, University of Oregon}
+
+% begin document
+\begin{document}
+\maketitle
+\centering
+\begin{columns}
+    \column{0.32}
+    \block{An Important Problem}{%
+      \lipsum[1]
+    }
+    \block{Model}{%
+        \lipsum[2]
+    }
+    \block{Inverse Problem}{%
+        \lipsum[4-6]
+    }
+
+    \column{0.36}
+    \block{Results}{%
+        \lipsum[6]
+
+        \vspace{1em}
+        \begin{tikzfigure}[Big fancy graphic.]
+            \includegraphics[width=0.9\linewidth]{example-image}
+        \end{tikzfigure}
+        \vspace{1em}
+
+        \lipsum[7-9]
+    }
+
+    \column{0.32}
+    \block{Comparison}{%
+        \lipsum[10]
+
+        \begin{tikzfigure}[Look, my method is better.]
+            \includegraphics[width=0.5\linewidth]{example-image}
+        \end{tikzfigure}
+
+        \lipsum[11]
+    }
+
+    \block{Remarks}{%
+      \lipsum[12]
+    }
+
+    \block{Acknowledgements}{%
+      Lorem ipsum dolor sit amet, probo dolorem cu vis. Cu mei audire fabulas scriptorem, cu has clita fabulas. Sea id veritus maiorum indoctum, mea cu assum cetero. Ei posse movet maluisset vim~\cite{cite:0,cite:1}.
+    }
+
+    \block{References}{%
+        \vspace{-1em}
+        \begin{footnotesize}
+            \printbibliography[heading=none]
+        \end{footnotesize}
+    }
+\end{columns}
+\end{document}
