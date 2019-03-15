@@ -8,6 +8,7 @@
 
 % Prevent font size warnings
 \usepackage{lmodern}
+\usepackage{anyfontsize}
 
 \def\defineCMYKcolor(#1,#2,#3,#4)#5{%
     \pgfmathsetmacro{\myc}{#1/100}%
@@ -130,23 +131,38 @@
 \makeatletter
 \renewcommand\TP@maketitle{%
   \centering
+  \begin{minipage}[c]{0.13\textwidth}%
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/uo_logo.pdf}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.7\textwidth}%
+    \centering
+    \color{titlefgcolor}
+    {\bfseries \Huge \sc \textbf{\@title} \par}
+    \vspace*{1em}
+    {\huge \@author \par}
+    \vspace*{1em}
+    {\Large \@institute}
+  \end{minipage}\hfill
   \noindent\begin{minipage}[c]{0.13\textwidth}%
     \centering
     \hfill % Remove this line if adding a second university image
     % \includegraphics[width=1\textwidth]{other_university_logo.pdf}
   \end{minipage}\hfill
-  \begin{minipage}[c]{0.7\textwidth}%
-    \centering
-    \color{titlefgcolor}
-    {\bfseries \Huge \sc \@title \par}
-    \vspace*{1em}
-    {\huge \@author \par}
-    \vspace*{1em}
-    {\LARGE \@institute}
-  \end{minipage}\hfill
-  \begin{minipage}[c]{0.13\textwidth}%
-    \centering
-    \includegraphics[width=0.4\linewidth]{img/uo_logo.pdf}
-  \end{minipage}
 }
 \makeatother
+
+\usepackage{xpatch}
+\xpatchcmd{\block}{\bf\LARGE\color{blocktitlefgcolor}}{\bfseries\LARGE\color{blocktitlefgcolor}}{}{}
+
+% Simple commands to use color text in the poster
+\usepackage{color}
+\newcommand{\colortext}[2]{{\color{#1} #2}}
+\newcommand{\blue}[1]{\colortext{blue}{#1}}
+\newcommand{\green}[1]{\colortext{green}{#1}}
+\newcommand{\uogreen}[1]{\colortext{UOPineGreen}{#1}}
+\newcommand{\red}[1]{\colortext{red}{#1}}
+
+% Allows use of social media icons
+\usepackage{fontawesome}
+% Examples Include: \faGithub, \faLinkedin, \faStackExchange, and \faStackOverflow
